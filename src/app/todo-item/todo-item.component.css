@@ -6,10 +6,13 @@
 .myinput:focus{
     outline: none; 
 }
-.myinput:hover{
+/* .myinput:hover{
     cursor: pointer;
-}
+} */
 
 .myborder{
     border: 1px solid black;
 }
+
+input:read-only {pointer-events:none}
+

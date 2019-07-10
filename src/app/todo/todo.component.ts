@@ -16,12 +16,13 @@ export class TodoComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("todo component");
-    
-    this.todoItems = this.todoService.getTodos();
-    this.todoService.getTodoStream().subscribe((todo:TodoItem|string)=>{
-      console.log("todo subscrption")
-      this.todoItems = this.todoService.getTodos();
+    // console.log("todo component");
+    this.todoService.fetchTodos();    
+
+    this.todoService.getTodoStream().subscribe((todos:any)=>{
+      // console.log("todo subscrption")
+      // this.todoItems = this.todoService.getTodos();
+      this.todoItems = todos;
     })
   }
   
