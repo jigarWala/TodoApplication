@@ -1,0 +1,21 @@
+<div class="list-group-item my-2" [class.myborder]="!readonly">
+
+    <div class="row" >
+        <div class="col-1">
+            <button (click)="toggleComplete()" class="btn btn-sm border border-secondary">
+                <i class="fa fa-check" [class.fa-check] = "todoItem.isCompleted"></i>
+            </button>
+        </div>
+        <div class="col-10" >
+            <input type="text" [value] = "todoItem.title"  
+                            [readonly]="readonly"
+                            class="text-secondary w-100 myinput border border-white" 
+                            [class.strike]="todoItem.isCompleted"
+                            (dblclick)="handleEdit($event)"
+                            (keydown)="inputTodo($event)">
+        </div>
+        <div class="col-1">
+            <button (click)="deleteTodo()" class="btn btn-sm"><i class="fa fa-times" style="color: red"></i></button>
+        </div>
+    </div>
+</div>

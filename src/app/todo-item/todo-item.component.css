@@ -1,0 +1,15 @@
+.strike{
+    text-decoration: line-through;
+    color: aliceblue;
+}
+
+.myinput:focus{
+    outline: none; 
+}
+.myinput:hover{
+    cursor: pointer;
+}
+
+.myborder{
+    border: 1px solid black;
+}

@@ -1,0 +1,20 @@
+<div class="card card-body mt-4 shadow">
+    <div class="row">
+        <div class="col-1">
+            <button (click)="toggleAll()" class="btn btn-sm badge badge-info"><i class="fa fa-angle-down"></i></button>
+        </div>
+        <div class="col-11">
+            <input autofocus class="form-control" (keydown)="inputTodo($event)" type="text" placeholder="What needs to be Done?"/>
+        </div>
+    </div>
+    <div class="mt-2">
+        <app-todo-item *ngFor="let todoItem of todoItems" [value] = "todoItem"></app-todo-item>
+    </div>
+    <div class="mt-2">
+        
+        <button  class="btn btn-sm btn-light float-right mx-1">Completed</button>
+        <button  class="btn btn-sm btn-light float-right mx-1">Active</button>
+        <button  class="btn btn-sm btn-light float-right mx-1">All</button>
+        
+    </div>
+</div>
