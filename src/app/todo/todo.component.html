@@ -12,9 +12,16 @@
     </div>
     <div class="mt-2">
         
-        <button  class="btn btn-sm btn-light float-right mx-1">Completed</button>
-        <button  class="btn btn-sm btn-light float-right mx-1">Active</button>
-        <button  class="btn btn-sm btn-light float-right mx-1">All</button>
+        <button  #completed (click)="handleComplete($event)" 
+        [class.btn-light]="filter!=='COMPLETED'" [class.btn-info]="filter==='COMPLETED'"
+         class="btn btn-sm float-right mx-1">Completed</button>
+        
+         <button  #active (click)="handleActive($event)" 
+         [class.btn-light]="filter!=='ACTIVE'" [class.btn-info]="filter==='ACTIVE'"
+         class="btn btn-sm btn-light float-right mx-1">Active</button>
+         <button #all (click)="handleAll($event)" 
+         [class.btn-light]="filter!=='ALL'" [class.btn-info]="filter==='ALL'"
+         class="btn btn-sm btn-light float-right mx-1">All</button>
         
     </div>
 </div>

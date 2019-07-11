@@ -14,8 +14,8 @@ export class TodoItemComponent implements OnInit {
   readonly: boolean = true;
   og: string = ""
 
-  @ViewChild("inputRef",null) inputRef: ElementRef;
-  
+  @ViewChild("inputRef", null) inputRef: ElementRef;
+
   constructor(private todoService: TodoService, ) { }
 
   ngOnInit() {
@@ -36,16 +36,20 @@ export class TodoItemComponent implements OnInit {
     this.inputRef.nativeElement.focus();
     this.readonly = false;
   }
-  handleBlur(e){
-    e.code="Enter";
+  handleBlur(e) {
+    e.code = "Enter";
     this.inputTodo(e);
   }
   inputTodo(e) {
 
     if (e.code === "Enter") {
       let title = e.target.value;
-      this.todoItem.title = title;
-      this.todoService.updateTodo(this.todoItem);
+      if (title === "")
+        this.todoService.deleteTodo(this.todoItem);
+      else {
+        this.todoItem.title = title;
+        this.todoService.updateTodo(this.todoItem);
+      }
       this.readonly = true;
     }
     else if (e.code === "Escape") {
@@ -64,7 +68,7 @@ export class TodoItemComponent implements OnInit {
       // this.elRef.nativeElement.findElementBy
       this.inputRef.nativeElement.value = this.og;
       // console.log(this.inputRef);
-      
+
       this.readonly = true;
     }
   }

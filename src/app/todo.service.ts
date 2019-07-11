@@ -65,6 +65,7 @@ export class TodoService {
     (error)=>{
       console.log(error)
     })
+    this.todoStream.next(this.getTodosFromMap());
 
   }
   deleteTodo(todo) {
